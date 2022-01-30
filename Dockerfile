@@ -12,6 +12,7 @@ RUN apt-get update && \
     nginx \
     procps \
     iproute2 \
+    vim \
     && apt-get autoclean >/dev/null && \
     rm -R /var/www/* && \
     mkdir /var/www/lab3.local && \
@@ -22,9 +23,7 @@ RUN apt-get update && \
     usermod -g kalitin nikita && \
     chown -R nikita:kalitin /var/www/lab3.local && \
     sed -i 's/\/var\/www\/html/\/var\/www\/lab3.local/g' /etc/nginx/sites-enabled/default && \
-    sed -i 's/user www-data/user nikita/g' /etc/nginx/nginx.conf && \
-    apt-get -y install >/dev/null \
-    vim
+    sed -i 's/user www-data/user nikita/g' /etc/nginx/nginx.conf
 
 COPY ./img.jpg /var/www/lab3.local/img/img.jpg
 COPY ./index.html /var/www/lab3.local/index.html
