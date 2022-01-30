@@ -15,8 +15,7 @@ RUN apt-get update && \
     vim \
     && apt-get autoclean >/dev/null && \
     rm -R /var/www/* && \
-    mkdir /var/www/lab3.local && \
-    mkdir /var/www/lab3.local/img && \
+    mkdir -p /var/www/lab3.local/img && \
     chmod -R 0754 /var/www/lab3.local && \
     useradd nikita && \
     groupadd kalitin && \
